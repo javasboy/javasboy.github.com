@@ -2,6 +2,12 @@
 <articles xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <article>
+	<title>Perl正则匹配及chomp函数练习</title>
+	<url>http://www.liurongxing.cn/2012/05/22/perl-regular-match-and-function-exercises.html</url>
+	<date>2012-05-22</date>
+</article>
+
+<article>
 	<title>Hello world</title>
 	<url>http://www.liurongxing.cn/2012/05/21/hello-world.html</url>
 	<date>2012-05-21</date>

@@ -4,13 +4,157 @@
    <title>Liurongxing</title>
    <link href="http://www.liurongxing.cn/atom.xml" rel="self" type="application/atom+xml"/>
    <link href="http://www.liurongxing.cn" rel="alternate" type="text/html" />
-   <updated>2012-05-21T15:27:40+08:00</updated>
+   <updated>2012-05-22T12:32:19+08:00</updated>
    <id>http://www.liurongxing.cn</id>
    <author>
      <name>LiuRongxing</name>
      <email>lrx512@gmail.com</email>
    </author>
 
+   
+   <entry>
+     <title>Perl正则匹配及chomp函数练习</title>
+     <link href="http://www.liurongxing.cn/2012/05/22/perl-regular-match-and-function-exercises.html"/>
+     <updated>2012-05-22T00:00:00+08:00</updated>
+     <id>http://www.liurongxing.cn/2012/05/22/perl-regular-match-and-function-exercises</id>
+     <content type="html">&lt;p&gt;昨天晚上在群里看到豆豆在讨论Perl正则匹配的问题，自己没事也跟着做了一下。因为自己看的骆驼书还没看到正则这一块，好多都不了解，所以记录一下。&lt;/p&gt;
+
+&lt;pre class=&quot;html&quot; name=&quot;colorcode&quot;&gt;
+[root@localhost perl]#cat test
+1
+one one
+hello
+22
+d
+&lt;/pre&gt;
+
+
+
+
+&lt;pre class=&quot;html&quot; name=&quot;colorcode&quot;&gt;
+[root@localhost test]# perl -ne 'print if /\d/' test
+1
+22
+&lt;/pre&gt;
+
+
+&lt;p&gt;test是一个文件&lt;/p&gt;
+
+&lt;p&gt;-e:代表执行perl命令&lt;/p&gt;
+
+&lt;p&gt;-n:代表遍历文件的内容&lt;/p&gt;
+
+&lt;p&gt;\d是perl元字符,在perl中代表匹配一个数字&lt;/p&gt;
+
+&lt;p&gt;\d  匹配一个数字的字符,和 [0-9] 语法一样，\d代表任意数字的字符集[0-9]&lt;/p&gt;
+
+&lt;p&gt;\D  非数字,其他同 \d&lt;/p&gt;
+
+&lt;p&gt;这里有更详细的&lt;/p&gt;
+
+&lt;p&gt;http://www.php-oa.com/2008/12/20/power-perl.html&lt;/p&gt;
+
+&lt;p&gt;而这样输入就得到不想要的输出字符结果。&lt;/p&gt;
+
+&lt;pre class=&quot;html&quot; name=&quot;colorcode&quot;&gt;
+[root@stationx perl]# perl -ne 'print if /\D/' test
+1
+one
+hello
+22
+d
+&lt;/pre&gt;
+
+
+&lt;p&gt;北京|MOON  22:12:42&lt;/p&gt;
+
+&lt;pre class=&quot;html&quot; name=&quot;colorcode&quot;&gt;
+22:11:40#tp#test&gt; perl -ne 'print if /^\D+$/' test
+one
+hello
+d
+&lt;/pre&gt;
+
+
+&lt;pre class=&quot;html&quot; name=&quot;colorcode&quot;&gt;
+22:12:18#tp#test&gt; perl -ne 'print if /^\d+$/' test
+1
+22
+&lt;/pre&gt;
+
+
+&lt;p&gt;\d+ 匹配多个数字字符串,和 [0-9]+ 语法一样
+\D+ 非数字,其他同 \d+
+^    配置字符串的开始
+$    匹配字符串的结束&lt;/p&gt;
+
+&lt;p&gt;北京|豆  22:42:16&lt;/p&gt;
+
+&lt;pre class=&quot;html&quot; name=&quot;colorcode&quot;&gt;
+[root@stationx perl]# perl -ne 'chomp($a=$_);print $_ if $a =~ /\D/' test
+one
+hello
+d
+&lt;/pre&gt;
+
+
+&lt;p&gt;北京|豆  22:30:29&lt;/p&gt;
+
+&lt;p&gt;perl在正则匹配的时候将新行\n也算作一个字符&lt;/p&gt;
+
+&lt;p&gt;所以print if /\D/不对&lt;/p&gt;
+
+&lt;p&gt;北京|MOON&lt;a href=&quot;&amp;#109;&amp;#x61;&amp;#x69;&amp;#108;&amp;#116;&amp;#111;&amp;#x3a;&amp;#x77;&amp;#x61;&amp;#x6c;&amp;#107;&amp;#101;&amp;#114;&amp;#x78;&amp;#x6b;&amp;#x40;&amp;#x67;&amp;#109;&amp;#x61;&amp;#x69;&amp;#x6c;&amp;#46;&amp;#99;&amp;#x6f;&amp;#109;&quot;&gt;&amp;#x77;&amp;#x61;&amp;#x6c;&amp;#x6b;&amp;#101;&amp;#x72;&amp;#x78;&amp;#107;&amp;#x40;&amp;#x67;&amp;#x6d;&amp;#x61;&amp;#x69;&amp;#108;&amp;#x2e;&amp;#x63;&amp;#x6f;&amp;#109;&lt;/a&gt;  22:31:23&lt;/p&gt;
+
+&lt;p&gt;所以经常要chomp&lt;/p&gt;
+
+&lt;h3&gt;何为chomp？&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Perl chomp函数&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;介绍:&lt;/strong&gt;
+chomp函数通常会删除变量里包含的字符串尾部的换行符。它是chop函数的一个略微安全些的版本，因为它对没有换行符的字符串没有影响。更准确地说，它根据了解$/的当前值删除字符串终止符，而不只是最后一个字符。如果字符串后面有两个以上的换行符，chomp也仅仅删除一个。如果结尾处没有换行符，它什么也不做，直接返回零。
+和chop不同，chomp返回删除的字符数量。你不能chomp一个直接量，只能处理变量。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;用法:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre class=&quot;html&quot; name=&quot;colorcode&quot;&gt;
+chomp VARIABLE
+chomp LIST
+chomp
+&lt;/pre&gt;
+
+
+&lt;p&gt;&lt;strong&gt;例子：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre class=&quot;perl&quot; name=&quot;colorcode&quot;&gt;
+#!/usr/bin/perl
+
+$string1 = &quot;This is test&quot;;
+$retval  = chomp( $string1 );
+
+print &quot; Choped String is : $string1\n&quot;;
+print &quot; Number of characters removed : $retval\n&quot;;
+
+$string1 = &quot;This is test\n&quot;;
+$retval  = chomp( $string1 );
+
+print &quot; Choped String is : $string1\n&quot;;
+print &quot; Number of characters removed : $retval\n&quot;;
+&lt;/pre&gt;
+
+
+&lt;p&gt;&lt;strong&gt;结果如下：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre class=&quot;html&quot; name=&quot;colorcode&quot;&gt;
+Choped String is : This is test
+Number of characters removed : 0
+Choped String is : This is test
+Number of characters removed : 1
+&lt;/pre&gt;
+
+</content>
+   </entry>
    
    <entry>
      <title>Hello world</title>

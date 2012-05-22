@@ -22,6 +22,11 @@
     </url>
     
     <url>
+        <loc>http://www.liurongxing.cn/2012/05/22/perl-regular-match-and-function-exercises.html</loc>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
         <loc>http://www.liurongxing.cn/2012/05/21/hello-world.html</loc>
         <priority>0.8</priority>
     </url>
