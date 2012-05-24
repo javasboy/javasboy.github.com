@@ -18,9 +18,11 @@ d
 {% endhighlight  %}
 
 {% highlight sh  %}
+
 [root@localhost test]# perl -ne 'print if /\d/' test
 1
 22
+
 {% endhighlight  %}
 
 test是一个文件
