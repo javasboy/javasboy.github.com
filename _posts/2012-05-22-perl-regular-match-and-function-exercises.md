@@ -103,7 +103,9 @@ chomp
 </pre>
 
 <strong>例子：</strong>
-<pre class="perl" name="colorcode">
+
+{% highlight pl linenos %}
+
 #!/usr/bin/perl
 
 $string1 = "This is test";
@@ -117,7 +119,8 @@ $retval  = chomp( $string1 );
 
 print " Choped String is : $string1\n";
 print " Number of characters removed : $retval\n";
-</pre>
+
+{% endhighlight %}
 
 <strong>结果如下：</strong>
 <pre class="html" name="colorcode">
