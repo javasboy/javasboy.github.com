@@ -17,7 +17,7 @@ d
 
 {% endhighlight %}
 
-{% highlight sh %}
+{% highlight pl %}
 
 [root@localhost test]# perl -ne 'print if /\d/' test
 1
