@@ -17,7 +17,7 @@ d
 
 {% endhighlight  %}
 
-{% highlight bash  %}
+{% highlight sh  %}
 [root@localhost test]# perl -ne 'print if /\d/' test
 1
 22
