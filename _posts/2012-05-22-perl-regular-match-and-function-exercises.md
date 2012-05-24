@@ -17,7 +17,7 @@ d
 
 {% endhighlight %}
 
-{% highlight pl %}
+{% highlight sh %}
 
 [root@localhost test]# perl -ne 'print if /\d/' test
 1
@@ -43,7 +43,7 @@ http://www.php-oa.com/2008/12/20/power-perl.html
 
 而这样输入就得到不想要的输出字符结果。
 
-{% highlight bash  %}
+{% highlight sh %}
 [root@stationx perl]# perl -ne 'print if /\D/' test
 1
 one
@@ -54,18 +54,21 @@ d
 
 北京|MOON  22:12:42
 
-{% highlight bash  %}
+{% highlight sh %}
+
 22:11:40#tp#test> perl -ne 'print if /^\D+$/' test
 one
 hello
 d
-{% endhighlight  %}
 
-{% highlight pl  %}
+{% endhighlight %}
+
+{% highlight sh %}
+
 22:12:18#tp#test> perl -ne 'print if /^\d+$/' test
 1
 22
-{% endhighlight  %}
+{% endhighlight %}
 
 
 \d+	匹配多个数字字符串,和 [0-9]+ 语法一样
@@ -78,12 +81,15 @@ $    匹配字符串的结束
 
 
 北京|豆  22:42:16
-{% highlight pl  %}
+
+{% highlight sh %}
+
 [root@stationx perl]# perl -ne 'chomp($a=$_);print $_ if $a =~ /\D/' test
 one
 hello
 d
-{% endhighlight  %}
+
+{% endhighlight %}
 
 北京|豆  22:30:29
 
@@ -104,11 +110,13 @@ chomp函数通常会删除变量里包含的字符串尾部的换行符。它是
 
 <strong>用法:</strong>
 
-{% highlight pl  %}
+{% highlight sh %}
+
 chomp VARIABLE
 chomp LIST
 chomp
-{% endhighlight  %}
+
+{% endhighlight %}
 
 <strong>例子：</strong>
 
