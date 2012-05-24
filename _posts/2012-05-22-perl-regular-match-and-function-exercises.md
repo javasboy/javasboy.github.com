@@ -6,7 +6,7 @@ keywords: Perl, chomp
 ---
 昨天晚上在群里看到豆豆在讨论Perl正则匹配的问题，自己没事也跟着做了一下。因为自己看的骆驼书还没看到正则这一块，好多都不了解，所以记录一下。
 
-{% highlight sh  %}
+{% highlight html %}
 
 [root@localhost perl]#cat test
 1
