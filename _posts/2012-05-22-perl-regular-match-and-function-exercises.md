@@ -15,15 +15,15 @@ hello
 22
 d
 
-{% endhighlight  %}
+{% endhighlight %}
 
-{% highlight sh  %}
+{% highlight sh %}
 
 [root@localhost test]# perl -ne 'print if /\d/' test
 1
 22
 
-{% endhighlight  %}
+{% endhighlight %}
 
 test是一个文件
 
