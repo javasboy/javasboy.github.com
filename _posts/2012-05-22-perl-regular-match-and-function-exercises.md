@@ -124,7 +124,7 @@ print " Number of characters removed : $retval\n";
 
 <strong>结果如下：</strong>
 
-{% highlight bash %}
+{% highlight html %}
 
 Choped String is : This is test
 Number of characters removed : 0
