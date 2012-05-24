@@ -104,7 +104,7 @@ chomp
 
 <strong>例子：</strong>
 
-{% highlight pl linenos %}
+{% highlight pl %}
 
 #!/usr/bin/perl
 
@@ -123,9 +123,12 @@ print " Number of characters removed : $retval\n";
 {% endhighlight %}
 
 <strong>结果如下：</strong>
-<pre class="html" name="colorcode">
+
+{% highlight bash %}
+
 Choped String is : This is test
 Number of characters removed : 0
 Choped String is : This is test
 Number of characters removed : 1
-</pre>
+
+{% endhighlight %}
