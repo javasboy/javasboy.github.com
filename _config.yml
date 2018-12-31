@@ -1,8 +1,12 @@
-markdown: rdiscount
-pygments: true
-plugins: ./_plugins
+# 目录结构
+source:      .
+plugins_dir: ./_plugins
 
-title: Liurongxing
+# Conversion
+markdown: kramdown
+highlighter: rouge
+
+title: LiuRongxing
 url: http://www.liurongxing.cn
 feed: /atom.xml
 author:
